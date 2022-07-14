@@ -29,8 +29,10 @@ analyzer_sent = create_analyzer(task="sentiment", lang="en")
 analyzer_em = create_analyzer(task="emotion", lang="en")
 
 df["cleaned"] = ""
-df["BERT_sent"] = ""
-df["BERT_emot"] = ""
+df["BERT_sent_labels"] = ""
+df["BERT_sent_scores"] = ""
+df["BERT_emot_labels"] = ""
+df["BERT_emot_scores"] = ""
 
 df["cleaned"] = df["text"].apply(clean_text)
 tweets = df["cleaned"].tolist()
@@ -38,12 +40,16 @@ df["cleaned"] = preprocess_tweet(tweets, lang="en")
 
 sentiment_predictions = analyzer_sent.predict(tweets)
 sentiment_tags = [prediction.output for prediction in sentiment_predictions]
-df["BERT_sent"] = sentiment_tags
+sentiment_scores = [prediction.probas for prediction in sentiment_predictions]
+df["BERT_sent_labels"] = sentiment_tags
+df["BERT_sent_scores"] = sentiment_scores
 
 emotion_predictions = analyzer_em.predict(tweets)
 emotion_tags = [prediction.output for prediction in emotion_predictions]
-df["BERT_emot"] = emotion_tags
+emotion_scores = [prediction.probas for prediction in emotion_predictions]
+df["BERT_emot_labels"] = emotion_tags
+df["BERT_emot_scores"] = emotion_scores
 
 df.to_pickle(f"../../split_data/BERT_{str(sys.argv[1])}")
 df0 = df.drop_duplicates(subset=["text"], keep="first")
-df0.to_pickle(f"../../split_data/BERT_{str(sys.argv[1])}_no_rts.pkl")
+df0.to_pickle(f"../../split_data/BERT_no_rts_{str(sys.argv[1])}")
