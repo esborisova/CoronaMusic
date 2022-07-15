@@ -50,6 +50,7 @@ emotion_scores = [prediction.probas for prediction in emotion_predictions]
 df["BERT_emot_labels"] = emotion_tags
 df["BERT_emot_scores"] = emotion_scores
 
-df.to_pickle(f"../../split_data/BERT_{str(sys.argv[1])}")
-df0 = df.drop_duplicates(subset=["text"], keep="first")
-df0.to_pickle(f"../../split_data/BERT_no_rts_{str(sys.argv[1])}")
+df.to_pickle(f"../../split_data/BERT_new_{str(sys.argv[1])}")
+no_rts = df[df["text"].str.contains("RT @") == False]
+no_rts = no_rts.reset_index(drop = True)
+no_rts.to_pickle(f"../../split_data/BERT_no_rts_{str(sys.argv[1])}")
