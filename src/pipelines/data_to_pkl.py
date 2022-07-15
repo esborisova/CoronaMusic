@@ -35,8 +35,8 @@ df_not_music = pd.DataFrame(list(chain.from_iterable(not_music_tweets)))
 df_music["music"] = True
 df_not_music["music"] = False
 
-df_music.to_pickle("../../split_data/music.pkl")
+df_music.to_pickle("../../split_data/music_new.pkl")
 df_not_music.to_pickle("../../split_data/not_music.pkl")
 
 merged = df_music.append(df_not_music, ignore_index=True)
-merged.to_pickle("../../split_data/geocovid.pkl")
+merged.to_pickle("../../split_data/geocovid_new.pkl")
