@@ -17,14 +17,14 @@ files_paths = save_filepaths(root_dir)
 music_tweets = []
 not_music_tweets = []
 
-for file in files_paths:
-    with open(file) as f:
+for path in files_paths:
+    with open(path) as f:
         try:
             data = ndjson.load(f)
         except ValueError:
             continue
         if len(data) != 0:
-            if "/music_related/" in file:
+            if "/music_related/" in path:
                 music_tweets.append(data)
             else:
                 not_music_tweets.append(data)
