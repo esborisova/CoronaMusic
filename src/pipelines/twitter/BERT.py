@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("../../../scripts")
+sys.path.append("../../scripts")
 from clean_tweets import clean_text
 import pandas as pd
 import os

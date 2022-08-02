@@ -1,7 +1,7 @@
 """Pipeline for saving plit tweets (music/not music) into single/two separate df(s)"""
 import sys
 
-sys.path.append("../../../scripts")
+sys.path.append("../../scripts")
 import ndjson
 from itertools import chain
 import pandas as pd

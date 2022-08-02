@@ -22,3 +22,8 @@ def get_average_score(df):
     grouped = df.groupby(["Date"]).mean()
     grouped = grouped.reset_index()
     return grouped
+
+
+def get_week_numb(date):
+    week = datetime.strftime(datetime.strptime(date,'%Y-%m-%d'), '%V')
+    return week
