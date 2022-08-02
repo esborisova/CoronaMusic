@@ -10,8 +10,8 @@ import matplotlib.gridspec as gridspec
 from prepare_date import transform_date, date_df, get_average_score
 
 
-df_music = pd.read_pickle(f"../../split_data/{str(sys.argv[1])}")
-df_not_music = pd.read_pickle(f"../../split_data/{str(sys.argv[1])}")
+df_music = pd.read_pickle(f"../../../split_data/{str(sys.argv[1])}")
+df_not_music = pd.read_pickle(f"../../../split_data/{str(sys.argv[1])}")
 
 df_music["created_at"] = df_music["created_at"].apply(transform_date)
 df_not_music["created_at"] = df_not_music["created_at"].apply(transform_date)
@@ -69,4 +69,4 @@ else:
 plt.suptitle(
     f"Average daily BERT emotions: Music vs non-music {label}", y=0.91, fontsize=20
 )
-fig.savefig(f"../../figs/daily_emot_dist_{label2}.png", bbox_inches="tight")
+fig.savefig(f"../../../figs/daily_emot_dist_{label2}.png", bbox_inches="tight")

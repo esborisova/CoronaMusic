@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("../../scripts")
+sys.path.append("../../../scripts")
 from clean_tweets import clean_text
 import pandas as pd
 import os
@@ -10,7 +10,7 @@ from pysentimiento import create_analyzer
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
-root_dir = "../../split_data/"
+root_dir = "../../../split_data/"
 file_path = os.path.join(root_dir, str(sys.argv[1]))
 df = pd.read_pickle(file_path)
 df = df.filter(["id", "created_at", "from_user_id", "text"])
@@ -50,7 +50,7 @@ emotion_scores = [prediction.probas for prediction in emotion_predictions]
 df["BERT_emot_labels"] = emotion_tags
 df["BERT_emot_scores"] = emotion_scores
 
-df.to_pickle(f"../../split_data/BERT_{str(sys.argv[1])}")
+df.to_pickle(f"../../../split_data/BERT_{str(sys.argv[1])}")
 no_rts = df[df["text"].str.contains("RT @") == False]
 no_rts = no_rts.reset_index(drop=True)
-no_rts.to_pickle(f"../../split_data/BERT_no_rts_{str(sys.argv[1])}")
+no_rts.to_pickle(f"../../../split_data/BERT_no_rts_{str(sys.argv[1])}")

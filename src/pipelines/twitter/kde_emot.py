@@ -6,8 +6,8 @@ import matplotlib.dates as md
 from matplotlib.ticker import FormatStrFormatter
 import matplotlib.gridspec as gridspec
 
-df_music = pd.read_pickle("../../split_data/BERT_no_rts_music.pkl")
-df_not_music = pd.read_pickle("../../split_data/BERT_no_rts_not_music.pkl")
+df_music = pd.read_pickle("../../../split_data/BERT_no_rts_music.pkl")
+df_not_music = pd.read_pickle("../../../split_data/BERT_no_rts_not_music.pkl")
 
 music_scores = df_music["BERT_emot_scores"].tolist()
 music_df0 = pd.DataFrame(music_scores)
@@ -54,4 +54,4 @@ fig.supylabel("Density", x=0.05, fontsize=25)
 plt.suptitle(
     "BERT emotions distribution: Music vs non-music (without RTs)", y=0.91, fontsize=20
 )
-fig.savefig("../../figs/emot_dist_kde_no_rts.png", bbox_inches="tight")
+fig.savefig("../../../figs/emot_dist_kde_no_rts.png", bbox_inches="tight")

@@ -1,6 +1,6 @@
 import sys
 
-sys.append.path("../../scripts")
+sys.append.path("../../../scripts")
 import networkx as nx
 import matplotlib.pyplot as plt
 from bokeh.plotting import save

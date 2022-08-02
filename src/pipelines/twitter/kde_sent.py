@@ -5,8 +5,8 @@ from datetime import datetime
 import matplotlib.dates as md
 from matplotlib.ticker import FormatStrFormatter
 
-df_music = pd.read_pickle("../../split_data/BERT_no_rts_music.pkl")
-df_not_music = pd.read_pickle("../../split_data/BERT_no_rts_not_music.pkl")
+df_music = pd.read_pickle("../../../split_data/BERT_no_rts_music.pkl")
+df_not_music = pd.read_pickle("../../../split_data/BERT_no_rts_not_music.pkl")
 
 music_scores = df_music["BERT_sent_scores"].tolist()
 music_df0 = pd.DataFrame(music_scores)
@@ -40,4 +40,4 @@ fig.supylabel("Density", x=0.01, fontsize=15)
 plt.suptitle(
     "BERT sentiment distribution: Music vs non-music (without RTs)", y=0.91, fontsize=15
 )
-fig.savefig("../../figs/sent_dist_kde_no_rts.png", bbox_inches="tight")
+fig.savefig("../../../figs/sent_dist_kde_no_rts.png", bbox_inches="tight")

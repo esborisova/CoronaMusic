@@ -1,7 +1,7 @@
 import sys
 
 
-sys.path.append("../../scripts")
+sys.path.append("../../../scripts")
 import pandas as pd
 from collect_paths import save_filepaths
 

@@ -1,7 +1,7 @@
 import sys
 
 
-sys.append.path("../../scripts")
+sys.append.path("../../../scripts")
 import pandas as pd
 import spacy
 from preprocess import clean_text, collect_lemmas, collect_nn_adj, rm_stops
