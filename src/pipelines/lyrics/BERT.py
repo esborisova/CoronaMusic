@@ -45,7 +45,7 @@ emotion_predictions = analyzer_em.predict(texts)
 emotion_scores = [prediction.probas for prediction in emotion_predictions]
 df["BERT_emot_scores"] = emotion_scores
 
-if "orona_songs" in str(sys.argv[1]):
+if "corona_songs" in str(sys.argv[1]):
     name = "BERT_corona_songs.pkl"
 
 elif "corona_parodies" in str(sys.argv[1]):
