@@ -1,6 +1,6 @@
 import sys
 
-sys.append.path("../../scripts")
+sys.path.append("../../scripts")
 import pandas as pd
 from gensim.models import LdaModel
 import pyLDAvis.gensim_models
