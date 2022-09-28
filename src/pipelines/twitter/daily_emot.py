@@ -1,6 +1,6 @@
 import sys
 
-sys.append.path("../../scripts")
+sys.path.append("../../scripts")
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
